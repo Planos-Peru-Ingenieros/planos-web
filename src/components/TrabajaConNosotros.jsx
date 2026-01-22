@@ -47,7 +47,7 @@ const TrabajaConNosotros = () => {
   }
 
   try {
-    const response = await fetch('https://planosperu.com.pe/intranet/api/postular/', {
+    const response = await fetch('https://intranet.planosperu.com.pe/api/postular/', {
       method: 'POST',
       body: formDataToSend
     });

@@ -76,7 +76,7 @@ const FormularioProyecto = () => {
 
       if (valor.length === 8) {
         try {
-          const res = await fetch(`https://planosperu.com.pe/intranet/api/dni/${valor}`);
+          const res = await fetch(`https://intranet.planosperu.com.pe/api/dni/${valor}`);
           const data = await res.json();
           if (data?.nombreCompleto) {
             setFormData(prev => ({ ...prev, cliente: capitalizarNombre(data.nombreCompleto) }));
@@ -89,7 +89,7 @@ const FormularioProyecto = () => {
         }
       } else if (valor.length === 11) {
         try {
-          const res = await fetch(`https://planosperu.com.pe/intranet/api/ruc/${valor}`);
+          const res = await fetch(`https://intranet.planosperu.com.pe/api/ruc/${valor}`);
           const data = await res.json();
           if (data?.razonSocial) {
             setFormData(prev => ({ ...prev, cliente: capitalizarNombre(data.razonSocial) }));
@@ -113,7 +113,7 @@ const FormularioProyecto = () => {
   }, []);
 
   useEffect(() => {
-    fetch('https://planosperu.com.pe/intranet/api/csrf/', {
+    fetch('https://intranet.planosperu.com.pe/intranet/api/csrf/', {
       credentials: 'include',
     });
   }, []);
@@ -122,7 +122,7 @@ const FormularioProyecto = () => {
     e.preventDefault();
     const csrftoken = getCookie('csrftoken');
     try {
-      const response = await fetch('https://planosperu.com.pe/intranet/api/enviar/', {
+      const response = await fetch('https://intranet.planosperu.com.pe/intranet/api/enviar/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

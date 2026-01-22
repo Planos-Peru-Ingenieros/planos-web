@@ -19,7 +19,7 @@ const ChangeView = ({ center, zoom }) => {
   useEffect(() => {
     const fetchProyectos = async () => {
       try {
-        const response = await axios.get('https://planosperu.com.pe/intranet/api/ubicaciones/');
+        const response = await axios.get('https://intranet.planosperu.com.pe/api/ubicaciones/');
         setProyectos(response.data.features);
       } catch (err) {
         console.error('Error al obtener datos:', err);
